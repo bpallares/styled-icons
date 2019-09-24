@@ -15,6 +15,7 @@ before_install:
 
 script:
   - yarn build
+  - yarn test:integration
 
 after_success:
   - npm config set "//registry.npmjs.org/:_authToken=\${NPM_API_KEY}"
