@@ -6,7 +6,7 @@ addons:
       - libnss3
 
 language: node_js
-node_js: '10'
+node_js: "10"
 
 cache:
   yarn: true
@@ -16,6 +16,11 @@ cache:
 env:
   global:
     - NODE_OPTIONS=--max-old-space-size=4096
+    - JOB_COUNT=3
+  matrix:
+    - JOB_INDEX=0
+    - JOB_INDEX=1
+    - JOB_INDEX=2
 
 before_install:
   - "sysctl kernel.unprivileged_userns_clone=1"
