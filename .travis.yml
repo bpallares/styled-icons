@@ -34,8 +34,7 @@ before_install:
   - export PATH=$HOME/.yarn/bin:$PATH
 
 script:
-  - if [ "${JOB_INDEX}" = "-1" ]; then yarn build; fi
-  - if [ "${JOB_INDEX}" != "-1" ]; then yarn build --scope styled-icons; fi
+  - yarn build
   - if [ "${JOB_INDEX}" != "-1" ]; then yarn test:integration; fi
 
 after_success:
