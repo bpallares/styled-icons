@@ -42,6 +42,8 @@ before_install:
 script:
   - yarn build
   - if [ "${ICON_PACK}" != "all" ]; then travis_wait 30 yarn test:integration; fi
+  # Clear cache so we don't try to upload on all packs
+  - if [ "${ICON_PACK}" != "all" ]; then rm -f $CASHER_DIR/mtime.yml; fi
 
 after_success:
   - npm config set "//registry.npmjs.org/:_authToken=\${NPM_API_KEY}"
