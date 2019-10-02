@@ -16,7 +16,7 @@ cache:
 env:
   global:
     - NODE_OPTIONS=--max-old-space-size=4096
-    - JOB_COUNT=6
+    - JOB_COUNT=13
   matrix:
     - JOB_INDEX=-1
     - JOB_INDEX=0
@@ -25,6 +25,14 @@ env:
     - JOB_INDEX=3
     - JOB_INDEX=4
     - JOB_INDEX=5
+    - JOB_INDEX=6
+    - JOB_INDEX=7
+    - JOB_INDEX=8
+    - JOB_INDEX=9
+    - JOB_INDEX=10
+    - JOB_INDEX=11
+    - JOB_INDEX=12
+    - JOB_INDEX=13
 
 before_install:
   - 'sysctl kernel.unprivileged_userns_clone=1'
@@ -35,7 +43,7 @@ before_install:
 
 script:
   - yarn build
-  - if [ "${JOB_INDEX}" != "-1" ]; then yarn test:integration; fi
+  - if [ "${JOB_INDEX}" != "-1" ]; then travis_wait 20 yarn test:integration; fi
 
 after_success:
   - npm config set "//registry.npmjs.org/:_authToken=\${NPM_API_KEY}"
