@@ -16,12 +16,15 @@ cache:
 env:
   global:
     - NODE_OPTIONS=--max-old-space-size=4096
-    - JOB_COUNT=3
+    - JOB_COUNT=6
   matrix:
     - JOB_INDEX=-1
     - JOB_INDEX=0
     - JOB_INDEX=1
     - JOB_INDEX=2
+    - JOB_INDEX=3
+    - JOB_INDEX=4
+    - JOB_INDEX=5
 
 before_install:
   - 'sysctl kernel.unprivileged_userns_clone=1'
