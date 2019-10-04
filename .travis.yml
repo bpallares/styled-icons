@@ -35,7 +35,7 @@ jobs:
   include:
     - stage: Build
       script: yarn build
-    - stage: Tests
+    - stage: Test
       name: "Integration Tests"
       script: travis_wait 30 yarn test:integration
 
