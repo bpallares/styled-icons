@@ -13,6 +13,9 @@ cache:
   directories:
     - node_modules
 
+os:
+  - osx
+
 env:
   global:
     - NODE_OPTIONS=--max-old-space-size=4096
