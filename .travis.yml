@@ -12,20 +12,6 @@ env:
     - NODE_OPTIONS=--max-old-space-size=4096
     - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
     - USE_REMOTE_DUBUG=false
-  matrix:
-    - ICON_PACK=boxicons-logos
-    - ICON_PACK=boxicons-regular
-    - ICON_PACK=boxicons-solid
-    - ICON_PACK=crypto
-    - ICON_PACK=evil
-    - ICON_PACK=fa-brands
-    - ICON_PACK=fa-regular
-    - ICON_PACK=fa-solid
-    - ICON_PACK=feather
-    - ICON_PACK=icomoon
-    - ICON_PACK=material
-    - ICON_PACK=octicons
-    - ICON_PACK=typicons
 
 matrix:
   allow_failures:
@@ -43,6 +29,20 @@ jobs:
     - stage: test
       name: "Integration Tests"
       script: travis_wait 30 yarn test:integration
+      env:
+        - ICON_PACK=boxicons-logos
+        - ICON_PACK=boxicons-regular
+        - ICON_PACK=boxicons-solid
+        - ICON_PACK=crypto
+        - ICON_PACK=evil
+        - ICON_PACK=fa-brands
+        - ICON_PACK=fa-regular
+        - ICON_PACK=fa-solid
+        - ICON_PACK=feather
+        - ICON_PACK=icomoon
+        - ICON_PACK=material
+        - ICON_PACK=octicons
+        - ICON_PACK=typicons
 
 # script:
 #   - yarn build
