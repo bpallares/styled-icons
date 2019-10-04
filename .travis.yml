@@ -29,21 +29,6 @@ jobs:
     - stage: test
       name: "Integration Tests"
       script: travis_wait 30 yarn test:integration
-      env:
-        matrix:
-          - ICON_PACK=boxicons-logos
-          - ICON_PACK=boxicons-regular
-          - ICON_PACK=boxicons-solid
-          - ICON_PACK=crypto
-          - ICON_PACK=evil
-          - ICON_PACK=fa-brands
-          - ICON_PACK=fa-regular
-          - ICON_PACK=fa-solid
-          - ICON_PACK=feather
-          - ICON_PACK=icomoon
-          - ICON_PACK=material
-          - ICON_PACK=octicons
-          - ICON_PACK=typicons
 
 # script:
 #   - yarn build
