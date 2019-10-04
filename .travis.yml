@@ -31,11 +31,16 @@ matrix:
   allow_failures:
     - name: Integration Tests"
 
+stages:
+  - generate
+  - test
+
 jobs:
   include:
-    - stage: Build
+    - stage: generate
+      name: "Generate Icons & Build Website"
       script: yarn build
-    - stage: Test
+    - stage: test
       name: "Integration Tests"
       script: travis_wait 30 yarn test:integration
 
